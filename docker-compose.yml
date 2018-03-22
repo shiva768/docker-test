@@ -2,7 +2,7 @@ version: '2'
 services:
   db:
     container_name: db
-    build: docker/db
+    image: mysql:5.7
     ports:
       - "3306:3306"
     environment:
@@ -13,8 +13,8 @@ services:
 
   web:
     container_name: web
-#    command: bundle exec rdebug-ide --port 1234 --dispatcher-port 26162 --host 0.0.0.0 -- bin/rails s -b 0.0.0.0 -p 3000
-    build: docker/web
+    command: bundle exec rdebug-ide --port 1234 --dispatcher-port 26162 --host 0.0.0.0 -- bin/rails s -b 0.0.0.0 -p 3000
+    build: .
     ports:
       - "3000:3000"
       - "1234:1234"
@@ -23,4 +23,7 @@ services:
       - db:db
     volumes:
       - .:/var/myapp
-    command: sh -c "bundle install --path=vendor/bundle && rm tmp/pids/server.pid; bin/rails s -b 0.0.0.0"
+      - bundle:/mnt/bundle
+volumes:
+  bundle:
+#    command: sh -c "bundle install --path=vendor/bundle && rm tmp/pids/server.pid; bin/rails s -b 0.0.0.0"
