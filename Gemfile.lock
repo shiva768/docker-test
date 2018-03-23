@@ -50,6 +50,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    debase (0.2.2)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.2)
     debug_inspector (0.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -118,6 +121,8 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     ref (2.0.0)
+    ruby-debug-ide (0.6.1)
+      rake (>= 0.8.1)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -168,12 +173,14 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  debase
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
   mysql2
   puma
   rails (>= 5.0.0.beta3, < 5.1)
+  ruby-debug-ide
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
